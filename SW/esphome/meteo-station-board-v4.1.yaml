@@ -49,6 +49,11 @@ esp32:
   board: esp32-c3-devkitm-1
   framework:
     type: esp-idf
+# in case the firmware rolls back to previous versions after cycling power,
+# you can use the following (note it can brick the device and flashing via
+# USB may be necessary)
+#    advanced:
+#      enable_ota_rollback: false
 
 
 i2c:
@@ -149,7 +154,7 @@ api:
 #x# for testing with the interval, this should be commented out
 deep_sleep:
   id: deep_sleep_control
-  sleep_duration: 1min 
+  sleep_duration: 12min
   run_duration: 30s # as assurance for flakey wifi
 
 #x# interval:
